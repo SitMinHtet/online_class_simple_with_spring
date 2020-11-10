@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css"
+      th:href="@{/bootstrap/css/bootstrap.min.css}">
+<body>
+
+<h1>Hello</h1>
+
+<div class="container">
+    <form class="column ui form" th:object="${create}"
+          th:action="@{result}" method="post">
+        <h3>Application</h3>
+        <div class="field">
+            <label >Name</label>
+            <div class="ui left icon input">
+                <i class=" user icon"></i>
+                <input type="text" th:field="*{name}" placeholder="Enter Name">
+            </div>
+        </div>
+        <div class="field">
+            <label >Email</label>
+            <div class="ui left icon input">
+                <i class="mail icon"></i>
+                <input  type="text" th:field="*{email}" placeholder="Enter Email">
+            </div>
+        </div>
+        <div class="field">
+            <label >Phone</label>
+            <div class="ui left icon input">
+                <i class="phone icon"></i>
+                <input type="text" th:field="*{phone}" placeholder="Enter Phone">
+            </div>
+        </div>
+        <div class="field">
+            <button type="submit" class="ui animated fade blue button">
+                <a th:href="@{/registerMem}" class="visible content">Join Class</a>
+                <span class="hidden content">
+                                <i class="thumbs up icon"></i>Thank You!
+                            </span>
+            </button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+
+

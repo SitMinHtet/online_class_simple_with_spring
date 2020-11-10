@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Join Class</title>
+</head>
+<link rel="stylesheet" th:href="@{/resources/static/semantic.min.css}">
+<link rel="stylesheet" th:href="@{/resources/static/application.css}">
+<script  th:src="@{/resources/static/jquery.min.js}"></script>
+<script  th:src="@{/resources/static/semantic.min.js}"></script>
+<body>
+<div class="ui container">
+    <table class="ui table ">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="mem : ${allMem}">
+            <td th:text="${mem.name}"></td>
+            <td th:text="${mem.email}"></td>
+            <td th:text="${mem.phone}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>

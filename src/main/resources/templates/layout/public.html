@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title layout:title-pattern="$LAYOUT_TITLE | $CONTENT_TITLE">SMH ONLINE</title>
+    </head>
+    <link rel="stylesheet" th:href="@{/resources/static/semantic.min.css}">
+    <link rel="stylesheet" th:href="@{/resources/static/application.css}">
+    <script  th:src="@{/resources/static/jquery.min.js}"></script>
+    <script  th:src="@{/resources/static/semantic.min.js}"></script>
+    <body>
+
+        <nav class="ui blue inverted secondary pointing top fixed menu">
+            <div class="ui container">
+                <a th:href="@{/public}" class="active item">
+                    <i class="home icon"></i>Online Class
+                </a>
+
+                <div class="right menu">
+                    <a class="item" onclick="showLoginView()">
+                        <i class="sign in icon"></i>Log In
+                    </a>
+                </div>
+                <div class="menu">
+                    <a class="item" onclick="showSignInView()">
+                        <i class="sign in icon"></i>Sign In
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="ui container page-content">
+            <div layout:fragment="title"> Public Page</div>
+            <div layout:fragment="cover-image"></div>
+
+            <div layout:fragment="content">
+                Default Content
+            </div>
+        </div>
+
+
+        <div id="loginModal" class="ui tiny modal">
+            <div class="ui header">
+                <i class="sign in icon"></i>User Login
+            </div>
+            <div class="content">
+                <form action="" class="ui form">
+                    <div class="field">
+                        <label>Login ID</label>
+                        <div class="ui left icon labeled input">
+                            <i class="user icon"></i>
+                            <input type="text" placeholder="Enter Login ID">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Password</label>
+                        <div class="ui left icon labeled input">
+                            <i class="lock icon"></i>
+                            <input type="password" placeholder="Enter Your Password">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="actions">
+                <button class="ui blue icon labeled button">
+                    <i class="sign in icon"></i>Sign In
+                </button>
+                <button class="ui purple icon labeled button">
+                    <i class="sign in icon"></i>Cancel
+                </button>
+            </div>
+        </div>
+
+        <div id="signInModal" class="ui tiny modal">
+            <div class="ui header">User Sign in</div>
+            <div class="content"></div>
+            <div class="actions"></div>
+        </div>
+
+        <!--
+        <script>
+            function showLoginView() {
+                $('#loginModal').modal('show')
+                return false;
+            }
+
+            function showSignInView() {
+                $('#signInModal').modal('show')
+            }
+        </script>
+        -->
+
+    </body>
+</html>

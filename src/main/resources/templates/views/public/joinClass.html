@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Join Class</title>
+</head>
+<link rel="stylesheet" th:href="@{/resources/static/semantic.min.css}">
+<link rel="stylesheet" th:href="@{/resources/static/application.css}">
+<script  th:src="@{/resources/static/jquery.min.js}"></script>
+<script  th:src="@{/resources/static/semantic.min.js}"></script>
+<body>
+
+<h3  layout:fragment="title" class="ui center aligned header">Page for Applied People</h3>
+
+<div layout:fragment="content" class="ui padded stacked segment" >
+    <div class="ui grid" th:each="join :${joinClass}">
+        <div class="four wide column" >
+            <div class="ui fluid image">
+                <img class="card-img-top" src="../../static/images"  style="height: 250px;"
+                     th:src="@{'/resources/static/images/' + ${join.name} + '.png'}" alt="Card image cap">
+            </div>
+        </div>
+
+        <div class="twelve wide column">
+            <h3>Angular Class</h3>
+
+            <div class="ui list">
+                <!--Level-->
+                <div class="item">
+                    <i class="book icon"></i>
+                    <div class="content">Basic Level</div>
+                </div>
+                <!--Start Date-->
+                <div class="item">
+                    <i class="calendar icon"></i>
+                    <div class="content">06/OCT/2020</div>
+                </div>
+                <!--Days-->
+                <div class="item">
+                    <i class="calendar icon"></i>
+                    <div class="content">Mon - Fri</div>
+                </div>
+                <!--Times-->
+                <div class="item">
+                    <i class="clock icon"></i>
+                    <div class="content">18:00 - 20:00</div>
+                </div>
+                <!--Duration-->
+                <div class="item">
+                    <i class="hourglass half icon"></i>
+                    <div class="content">3 Months</div>
+                </div>
+                <!--Fees-->
+                <div class="item">
+                    <i class="dollar icon"></i>
+                    <div class="content">120000MMK</div>
+                </div>
+                <!--Requirements-->
+                <div class="item">
+                    <i class="hand point right outline icon"></i>
+                    <div class="content">Basic JavaScript</div>
+                </div>
+            </div>
+
+            <div class="ui divider"></div>
+
+            <div class="ui two column grid">
+                <div class="container">
+                    <form class="column ui form" th:object="${create}"
+                          th:action="@{result}" method="post">
+                        <h3>Application</h3>
+                        <div class="field">
+                            <label >Name</label>
+                            <div class="ui left icon input">
+                                <i class=" user icon"></i>
+                                <input type="text" th:field="*{name}" placeholder="Enter Name">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label >Email</label>
+                            <div class="ui left icon input">
+                                <i class="mail icon"></i>
+                                <input  type="text" th:field="*{email}" placeholder="Enter Email">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label >Phone</label>
+                            <div class="ui left icon input">
+                                <i class="phone icon"></i>
+                                <input type="text" th:field="*{phone}" placeholder="Enter Phone">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <button type="submit" class="ui animated fade blue button">
+                                <span>
+                                <a th:href="@{/showClasses/{id}/result (id=${join.id})}" class="visible content">Join Class</a>
+                                <span class="hidden content">
+                                <i class="thumbs up icon"></i>Thank You!
+                            </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

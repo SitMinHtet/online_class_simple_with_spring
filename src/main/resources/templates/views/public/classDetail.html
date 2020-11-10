@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{/layout/public}">
+<head>
+    <meta charset="UTF-8">
+    <title>Class Detail</title>
+</head>
+<link rel="stylesheet" th:href="@{/resources/static/semantic.min.css}">
+<link rel="stylesheet" th:href="@{/resources/static/application.css}">
+<script th:src="@{/resources/static/jquery.min.js}"></script>
+<script th:src="@{/resources/static/semantic.min.js}"></script>
+<body>
+<h3  layout:fragment="title" class="ui center aligned header">Class Detail Page Title</h3>
+
+<div layout:fragment="content" >
+    <div class="ui padded stacked segment">
+
+        <div id="classtab" class="ui pointing blue inverted menu">
+            <span data-tab="class" class="active item">Class  Information</span>
+            <span data-tab="course" class="item">Course Information</span>
+            <span data-tab="teacher" class="item">Teacher Information</span>
+
+        </div>
+
+        <!--CLASS INFO TAB-->
+        <div class="ui tab active" data-tab="class">
+            <div class="ui container">
+                <div class="ui segment" th:each="class : ${allClasses}">
+                    <div class="ui grid" >
+                        <div class="four wide column" >
+                            <div class="ui fluid image">
+                                <img class="card-img-top" src="../../static/images"  style="height: 250px;"
+                                     th:src="@{'/resources/static/images/' + ${class.name} + '.png'}" alt="Card image cap">
+                            </div>
+                            <div class="ui hidden divider"></div>
+                            <a th:href="@{/showClasses/{id}/join (id=${class.id})}" class="ui animated fluid blue button">
+                                <span class="visible content">Join Class</span>
+                                <span class="hidden content">
+                        <i class="thumbs up icon"></i>Thank You!
+                    </span>
+                            </a>
+                        </div>
+                        <div class="twelve wide column">
+                            <!--Class Title-->
+                            <h3>Angular Class</h3>
+
+                            <div class="ui list">
+                                <!--Level-->
+                                <div class="item">
+                                    <i class="book icon"></i>
+                                    <div class="content">Basic Level</div>
+                                </div>
+                                <!--Start Date-->
+                                <div class="item">
+                                    <i class="calendar icon"></i>
+                                    <div class="content">06/OCT/2020</div>
+                                </div>
+                                <!--Days-->
+                                <div class="item">
+                                    <i class="calendar icon"></i>
+                                    <div class="content">Mon - Fri</div>
+                                </div>
+                                <!--Times-->
+                                <div class="item">
+                                    <i class="clock icon"></i>
+                                    <div class="content">18:00 - 20:00</div>
+                                </div>
+                                <!--Duration-->
+                                <div class="item">
+                                    <i class="hourglass half icon"></i>
+                                    <div class="content">3 Months</div>
+                                </div>
+                                <!--Fees-->
+                                <div class="item">
+                                    <i class="dollar icon"></i>
+                                    <div class="content">120000MMK</div>
+                                </div>
+                                <!--Requirements-->
+                                <div class="item">
+                                    <i class="hand point right outline icon"></i>
+                                    <div class="content">Basic JavaScript</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--COURSE INFO TAB
+        <div class="ui tab " data-tab="course">
+            <div class="ui container">
+                <div class="ui  padded segment">
+                    <div class="ui grid" >
+                        <div class="fifteen wide column">
+                            <h3>Course Outline</h3>
+                            <p>The architecture of an Angular application relies on certain fundamental concepts. The basic building blocks are NgModules, which provide a compilation context for components.
+                                NgModules collect related code into functional sets; an Angular app is defined by a set of NgModules.Before going into the source structure, the next section shows how to fill
+                                out the HTML template for the product list, using the provided sample data. This should give you an idea how easy it is to modify and update the page dynamically.
+                            </p>
+                        </div>
+                        <div class="ui list">
+                            <div class="item">
+                                <i class="marker icon"></i>
+                                <div class="content">
+                                    <div class="header">
+                                        Java Language Fundamental
+                                    </div>
+                                    <div class="description">
+                                        Angular is a platform and framework for building single-page client applications using HTML and TypeScript.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <i class="marker icon"></i>
+                                <div class="content">
+                                    <div class="header">
+                                        Java Language Fundamental
+                                    </div>
+                                    <div class="description">
+                                        Angular is a platform and framework for building single-page client applications using HTML and TypeScript.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <i class="marker icon"></i>
+                                <div class="content">
+                                    <div class="header">
+                                        Java Language Fundamental
+                                    </div>
+                                    <div class="description">
+                                        Angular is a platform and framework for building single-page client applications using HTML and TypeScript.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <i class="marker icon"></i>
+                                <div class="content">
+                                    <div class="header">
+                                        Java Language Fundamental
+                                    </div>
+                                    <div class="description">
+                                        Angular is a platform and framework for building single-page client applications using HTML and TypeScript.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <i class="marker icon"></i>
+                                <div class="content">
+                                    <div class="header">
+                                        Java Language Fundamental
+                                    </div>
+                                    <div class="description">
+                                        Angular is a platform and framework for building single-page client applications using HTML and TypeScript.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        TEACHER INFO TAB
+        <div class="ui tab " data-tab="teacher">
+            <div class="container">
+                <div class="ui segment">
+                    <div class="ui grid">
+                        <div class="four wide column">
+                            <div class="ui fluid circular image">
+                                <img th:src="@{/resources/static/images/teacherImage.jpg}">
+                            </div>
+                        </div>
+                        <div class="twelve wide column">
+                            <h3>カカシ畑</h3>
+                            <div class="item">
+                                <div class="header">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        -->
+
+        <script>
+            $(()=>{
+                $('#classtab .item').tab()
+            })
+        </script>
+    </div>
+</div>
+
+</body>
+</html>

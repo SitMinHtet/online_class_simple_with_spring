@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{/layout/public}">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+</head>
+<link rel="stylesheet" th:href="@{/resources/static/semantic.min.css}">
+<link rel="stylesheet" th:href="@{/resources/static/application.css}">
+<script  th:src="@{/resources/static/jquery.min.js}"></script>
+<script  th:src="@{/resources/static/semantic.min.js}"></script>
+<body>
+
+<div class="ui segment">
+    <h3  layout:fragment="title" class="ui center aligned header">Home Page Title</h3>
+</div>
+
+<div layout:fragment="cover-image" class="ui segment">
+    <img class="ui fluid image" th:src="@{/resources/static/images/onlineclass.png}">
+</div>
+
+<div layout:fragment="content" >
+    <h3>You Can Apply!</h3>
+
+    <div class="ui four column grid" >
+        <div class="column" th:each="classes : ${class}">
+            <a th:href="@{/showClasses/{id}(id=${classes.id})}" class="ui raised fluid link card">
+                <span class="image">
+                   <img class="card-img-top" src="../../static/images"  style="height: 200px;"
+                        th:src="@{'/resources/static/images/' + ${classes.name} + '.png'}" alt="Card image cap">
+                </span>
+                <span class="content" th:text="${classes.name}">
+                    <span class="meta">100000MMK</span>
+                </span>
+                <span class="extra content">
+                    <span>
+                        <i class="user icon"></i>25 students
+                    </span>
+                    <span class="right floated">
+                        <i class="calendar icon"></i>start 05/10/2020
+                    </span>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
